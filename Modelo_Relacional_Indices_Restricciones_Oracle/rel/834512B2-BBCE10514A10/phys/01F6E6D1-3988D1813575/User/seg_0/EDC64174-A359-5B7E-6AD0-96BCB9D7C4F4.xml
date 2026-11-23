@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="HR" directorySegmentName="seg_0" id="EDC64174-A359-5B7E-6AD0-96BCB9D7C4F4">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjName>HR</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:18 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<schemaObject>633B9E30-9BBF-D7C6-9269-ACB59630C0E6</schemaObject>
+</UserOraclev10g>

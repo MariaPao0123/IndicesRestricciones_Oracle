@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A6397F12-03CB-1A47-A3EB-E15F4739E7B2" schemaObject="633B9E30-9BBF-D7C6-9269-ACB59630C0E6" name="DEPARTMENTS">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>DEPARTMENTS</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:20 UTC</createdTime>
+<commentInRDBMS><![CDATA[Departments table that shows details of departments where employees
+work. Contains 27 rows; references with locations, employees, and job_history tables.]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DEPARTMENT_ID" id="1D444688-E031-A314-6827-49B5B1E60C8F">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>DEPARTMENTS</sourceObjSchema>
+<sourceObjName>DEPARTMENT_ID</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[Primary key column of departments table.]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPARTMENT_NAME" id="1A5DD496-8E8E-3EDB-7201-0CE7B647E33E">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>DEPARTMENTS</sourceObjSchema>
+<sourceObjName>DEPARTMENT_NAME</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[A not null column that shows name of a department. Administration,
+Marketing, Purchasing, Human Resources, Shipping, IT, Executive, Public
+Relations, Sales, Finance, and Accounting. ]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>DEPT_NAME_NN</notNullConstraintName>
+</Column>
+<Column name="MANAGER_ID" id="00C71EA8-A571-FF2F-965E-E4D1A39F4E0B">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>DEPARTMENTS</sourceObjSchema>
+<sourceObjName>MANAGER_ID</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[Manager_id of a department. Foreign key to employee_id column of employees table. The manager_id column of the employee table references this column.]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,6,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C84D0C00-ABC8-5A0B-1852-FC5BDD567B93" referredColumn="ADBC541E-24A6-9F53-27DF-CE869502D4E1"/>
+</associations>
+</Column>
+<Column name="LOCATION_ID" id="820C0E35-EE48-E433-207A-F9FA847E123C">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>DEPARTMENTS</sourceObjSchema>
+<sourceObjName>LOCATION_ID</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[Location id where a department is located. Foreign key to location_id column of locations table.]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2F5B4679-D178-8388-9B7F-9B6AE1047C4F" referredColumn="38844903-BBA0-5C6E-D2E1-9091AC25301E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="948185A0-5F81-E2CC-F3FD-AB491536C4B2" name="DEPT_ID_PK">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>DEPT_ID_PK</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:33 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D444688-E031-A314-6827-49B5B1E60C8F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EBF09036-CA96-EBD0-F8A8-0248BD02A257" schemaObject="633B9E30-9BBF-D7C6-9269-ACB59630C0E6" name="DEPT_ID_PK">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>DEPT_ID_PK</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:28 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D444688-E031-A314-6827-49B5B1E60C8F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A802C1C-6720-5660-071E-D988408B012B" schemaObject="633B9E30-9BBF-D7C6-9269-ACB59630C0E6" name="DEPT_LOCATION_IX">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>DEPT_LOCATION_IX</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:28 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="820C0E35-EE48-E433-207A-F9FA847E123C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D34AFABB-0CE5-8109-9C03-5C805F37155D" name="DEPT_LOC_FK">
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:39 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="820C0E35-EE48-E433-207A-F9FA847E123C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="54023E86-21C8-6AA0-119A-70FBE4CDA3B6" name="DEPT_MGR_FK">
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:39 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00C71EA8-A571-FF2F-965E-E4D1A39F4E0B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,224 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1360706C-75A2-4E68-3D55-0E1ABC8FBCF9" schemaObject="633B9E30-9BBF-D7C6-9269-ACB59630C0E6" name="JOB_HISTORY">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>JOB_HISTORY</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:20 UTC</createdTime>
+<commentInRDBMS><![CDATA[Table that stores job history of the employees. If an employee
+changes departments within the job or changes jobs within the department,
+new rows get inserted into this table with old job information of the
+employee. Contains a complex primary key: employee_id+start_date.
+Contains 25 rows. References with jobs, employees, and departments tables.]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EMPLOYEE_ID" id="02ECCEE9-7421-1DDC-1003-4E969DC2797D">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>JOB_HISTORY</sourceObjSchema>
+<sourceObjName>EMPLOYEE_ID</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[A not null column in the complex primary key employee_id+start_date.
+Foreign key to employee_id column of the employee table]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,6,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>JHIST_EMPLOYEE_NN</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="8A61221D-4290-F59D-B5CA-58B2E1C47688" referredColumn="ADBC541E-24A6-9F53-27DF-CE869502D4E1"/>
+</associations>
+</Column>
+<Column name="START_DATE" id="DE58AB7E-BBAA-58CE-BCDA-6CAF8463DF95">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>JOB_HISTORY</sourceObjSchema>
+<sourceObjName>START_DATE</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[A not null column in the complex primary key employee_id+start_date.
+Must be less than the end_date of the job_history table. (enforced by
+constraint jhist_date_interval)]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>JHIST_START_DATE_NN</notNullConstraintName>
+</Column>
+<Column name="END_DATE" id="8D4B8D50-2720-E2FB-D0E8-5E7209107B37">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>JOB_HISTORY</sourceObjSchema>
+<sourceObjName>END_DATE</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[Last day of the employee in this job role. A not null column. Must be
+greater than the start_date of the job_history table.
+(enforced by constraint jhist_date_interval)]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>JHIST_END_DATE_NN</notNullConstraintName>
+</Column>
+<Column name="JOB_ID" id="6FEF7567-963A-C0A7-AD41-403737DCFF68">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>JOB_HISTORY</sourceObjSchema>
+<sourceObjName>JOB_ID</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[Job role in which the employee worked in the past; foreign key to
+job_id column in the jobs table. A not null column.]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>JHIST_JOB_NN</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="843F1DA5-9CD4-38CE-542A-394CC6374724" referredColumn="DF1C8DD0-7B9F-63F5-17B8-44FBC87A0709"/>
+</associations>
+</Column>
+<Column name="DEPARTMENT_ID" id="20D7F527-CB58-3752-F9DF-6F4B0042671A">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>JOB_HISTORY</sourceObjSchema>
+<sourceObjName>DEPARTMENT_ID</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[Department id in which the employee worked in the past; foreign key to deparment_id column in the departments table]]></commentInRDBMS>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2D03B9AF-583F-F963-696D-9C12B73D1C85" referredColumn="1D444688-E031-A314-6827-49B5B1E60C8F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0511E1EE-94DB-030F-BCF1-287D33EC8B9B" name="JHIST_EMP_ID_ST_DATE_PK">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>JHIST_EMP_ID_ST_DATE_PK</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:33 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02ECCEE9-7421-1DDC-1003-4E969DC2797D"/>
+<colUsage columnID="DE58AB7E-BBAA-58CE-BCDA-6CAF8463DF95"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E946F747-729C-F045-C0C6-96D783EB12EC" schemaObject="633B9E30-9BBF-D7C6-9269-ACB59630C0E6" name="JHIST_DEPARTMENT_IX">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>JHIST_DEPARTMENT_IX</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:28 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20D7F527-CB58-3752-F9DF-6F4B0042671A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91540225-B423-3FDC-4068-AF564F6DC92A" schemaObject="633B9E30-9BBF-D7C6-9269-ACB59630C0E6" name="JHIST_EMP_ID_ST_DATE_PK">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>JHIST_EMP_ID_ST_DATE_PK</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:28 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02ECCEE9-7421-1DDC-1003-4E969DC2797D"/>
+<colUsage columnID="DE58AB7E-BBAA-58CE-BCDA-6CAF8463DF95"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CB0ED0D4-594B-52C5-ADA2-BF6EB950934B" schemaObject="633B9E30-9BBF-D7C6-9269-ACB59630C0E6" name="JHIST_EMPLOYEE_IX">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>JHIST_EMPLOYEE_IX</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:28 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02ECCEE9-7421-1DDC-1003-4E969DC2797D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D4E20762-9C0D-EF4A-A4D7-83AD135C244B" schemaObject="633B9E30-9BBF-D7C6-9269-ACB59630C0E6" name="JHIST_JOB_IX">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>JHIST_JOB_IX</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:28 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6FEF7567-963A-C0A7-AD41-403737DCFF68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8A149B14-C26B-4A77-75D9-6E40C22CC0DD" name="JHIST_DEPT_FK">
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:39 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20D7F527-CB58-3752-F9DF-6F4B0042671A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1D9918D0-5180-D904-4293-D9215B47A1CA" name="JHIST_EMP_FK">
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:39 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02ECCEE9-7421-1DDC-1003-4E969DC2797D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="78670D37-1812-0AC7-689F-EFA0E9135FDB" name="JHIST_JOB_FK">
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:39 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_Indices_Restricciones_Oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6FEF7567-963A-C0A7-AD41-403737DCFF68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="JHIST_DATE_INTERVAL" directorySegmentName="seg_0" id="A053D398-87DE-996F-1AE0-40BFE0ABE00E">
+<sourceConnName>HR_Local_XE</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>JHIST_DATE_INTERVAL</sourceObjName>
+<createdBy>HP</createdBy>
+<createdTime>2026-11-22 07:12:38 UTC</createdTime>
+<ownerDesignName>Modelo_Relacional_HR_Oracle</ownerDesignName>
+<rule><![CDATA[end_date > start_date]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>
